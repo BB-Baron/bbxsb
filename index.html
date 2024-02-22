@@ -71,20 +71,23 @@
     <div id="setting-modal">
       <h2>プレイヤー名設定</h2>
       <form id="setting-form">
+		<button type="submit" style="margin-bottom: 10px;">Set and Close</button><br>
         <label for="left-player-name-input">Left：</label>
         <input type="text" id="left-player-name-input" name="leftPlayerName" required value="Left">
         <label for="right-player-name-input">Right：</label>
         <input type="text" id="right-player-name-input" name="rightPlayerName" required value="Right"><br>
-		<button type="submit">Set and Close</button>
         <div id="sets">
 			<div id="victory-point-setting">Victory Points:
-			<input type="number" id="victory-point-input" value="4" size="3"></div>
-			<select onchange="changestyle('mystyle',value);">
-				<option value="style.css">Default Style</option>
-				<option value="style_b.css">Black Style</option>
-				<option value="style_g.css">Green Style</option>
-				<option value="style_bl.css">Blue Style</option>
-			</select>
+			 <input type="number" id="victory-point-input" value="4" size="3">
+            </div>
+			<div id="styleselect">
+                <select onchange="changestyle('mystyle',value);">
+				    <option value="style.css">Default Style</option>
+				    <option value="style_b.css">Black Style</option>
+				    <option value="style_g.css">Green Style</option>
+				    <option value="style_bl.css">Blue Style</option>
+                </select>
+            </div>
 		</div>
       </form>
     </div>

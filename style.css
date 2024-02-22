@@ -138,6 +138,33 @@ main {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+#styleselect {
+    padding-top: 10px;
+}
+#setting-form select {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+#setting-form select::after {
+    position: absolute;
+    right: 5px;
+    width: 9px;
+    height: 16px;
+    background-color: #535353;
+    clip-path: polygon(0 0,100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+#setting-form select {
+    /*appearance: none;*/
+    min-width: 150px;
+    height: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
 
 #setting-form button {
   background-color: #333;
@@ -146,7 +173,6 @@ main {
   padding: 5px 10px;
   border-radius: 5px;
 }
-
 .material-symbols-outlined {
   font-size: 4vw;
 	font-variation-settings:
@@ -157,7 +183,9 @@ main {
 }
 #sets {
 	display: flex;
+    margin-top: 10px;
 }
+
 #victory-point-setting {
   text-align: center;
   padding: 10px;
