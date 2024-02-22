@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="manifest" href="./manifest.json">
+  <title>BeyBladeX Scoreboard</title>
+  <link rel="stylesheet" type="text/css" href="style.css" id="mystyle">
+ <!--
+  <script type="text/javascript">
+	function changestyle(cssid,cssfile) {
+	   document.getElementById(cssid).href = cssfile;
+	}
+</script>
+-->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./serviceWorker.js').then(registration => {
+      console.log('ServiceWorker registration successful.');
+    }).catch(err => {
+      console.log('ServiceWorker registration failed.');
+    });
+  }
+</script>
+
+</head>
+<body>
+  <div id="app">
+    <div id="nameBar">
+        <div id="left-player-name"></div>
+        <div id="buttons">
+		  <div id="reset-button">
+            <span class="material-symbols-outlined">refresh</span>
+          </div>
+          <div id="menu-icon">
+            <span class="material-symbols-outlined">settings</span>
+          </div>
+        </div>
+        <div id="right-player-name"></div>
+    </div>
+    <div class="container">
+        <div class="left-pane">
+          <div class="score" id="leftScore">0</div>
+			<div id="left-decision-buttons">
+			  <button class="decision-button" data-value="1">Spin</button>
+			  <button class="decision-button" data-value="2">Burst</button>
+			  <button class="decision-button" data-value="2">Over</button>
+			  <button class="decision-button" data-value="3">Xtream</button>
+			</div>
+        </div>
+        <div class="center-pane">
+          <!--<div class="vs">VS</div>-->
+          <ul id="decision-log"></ul>
+        </div>
+        <div class="right-pane">
+          <div class="score" id="rightScore">0</div>
+			<div id="right-decision-buttons">
+			  <button class="decision-button" data-value="1">Spin</button>
+			  <button class="decision-button" data-value="2">Burst</button>
+			  <button class="decision-button" data-value="2">Over</button>
+			  <button class="decision-button" data-value="3">Xtream</button>
+			</div>
+        </div>
+    </div>
+    <div id="footer">powered by BB Baron</div>
+    <div id="setting-modal">
+      <h2>プレイヤー名設定</h2>
+      <form id="setting-form">
+        <label for="left-player-name-input">Left：</label>
+        <input type="text" id="left-player-name-input" name="leftPlayerName" required value="Left">
+        <label for="right-player-name-input">Right：</label>
+        <input type="text" id="right-player-name-input" name="rightPlayerName" required value="Right"><br>
+		<button type="submit">Set and Close</button>
+        <div id="sets">
+			<div id="victory-point-setting">Victory Points:
+			<input type="number" id="victory-point-input" value="4" size="3"></div>
+			<select onchange="changestyle('mystyle',value);">
+				<option value="style.css">Default Style</option>
+				<option value="style_b.css">Black Style</option>
+				<option value="style_g.css">Green Style</option>
+				<option value="style_bl.css">Blue Style</option>
+			</select>
+		</div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
