@@ -7,11 +7,11 @@ body {
     font-weight: 400;
     font-style: normal;
 }
-/*
+
 div {
     border: 1px dotted #999;
 }
-*/
+
 
 #app {
   width: 100%;
@@ -46,8 +46,13 @@ div {
 .center-pane {
     width: 10%;
 }
+#centre {
+    font-size: 1.6VW;
+    width: 10%;
+    font-weight: 800;
+}
 #buttons {
-  width: 10%;
+  width: 100%;
 	display: flex;
   
 }
@@ -70,7 +75,7 @@ main {
 }
 /* 決まり手ボタン */
 .decision-button {
-	font-size: 2.5vw;
+	font-size: 2vw;
     font-family: "Orbitron", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -79,18 +84,23 @@ main {
     vertical-align: middle;
     text-decoration: none;
     border: 0px;
-    margin: auto;
-    padding: 0.2rem 0.5rem;
+    margin: auto 5px;
+    padding: 0.2rem 0.2rem;
     background: linear-gradient(to top, #bbb, #eee);
     color: #333;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
 }
+/*
 .decision-button:hover {
     color:#fff;
     opacity: 0.5;
 }
-
+*/
+.cap-big {
+    font-size: 3vw;
+    font-weight: 800;
+}
 #leftScore,
 #rightScore {
     font-size: 45vw;
