@@ -94,7 +94,7 @@ main {
 #leftScore,
 #rightScore {
     font-size: 45vw;
-    margin: -25px auto -20% auto;
+    margin: 0 auto -20% auto;
 	padding: -30px 0;
     font-family: "Rubik Mono One", monospace;
     font-weight: 400;
