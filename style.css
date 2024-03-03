@@ -125,18 +125,21 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 120%;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
 }
 
 #setting-form {
+  position: fixed;
+  inset: 0;
+  margin: 100px auto auto auto;  
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  margin: 0 auto;
   max-width: 500px;
   text-align: center;
+  z-index: 20;
 }
 #left-player-name-input {
 	margin-right: 20px;
