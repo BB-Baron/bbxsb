@@ -25,10 +25,10 @@ div {
 	width: 100%;
 	display: flex;
 	margin: 0;
-	position: absolute;
+/*	position: absolute;
 	left:0;
-	top:0;
-	z-index: 10;
+	top:0;*/
+	z-index: 100;
 }
 
 
@@ -37,39 +37,44 @@ div {
   width: 100%;
   z-index: 2;
 }
-.left-pane,
-.right-pane {
+
+#left-decision-buttons,
+#right-decision-buttons {
     width: 45%;
 }
-
 
 .center-pane {
     width: 10%;
 }
+
 #centre {
     font-size: 1.6VW;
     width: 10%;
     font-weight: 800;
 }
 #buttons {
-  width: 100%;
+	width: 100%;
 	display: flex;
   
 }
 #reset-button {
-  background-color: transparent;
-  padding: 0;
-  cursor: pointer;
+	background-color: transparent;
+	padding: 0;
+	cursor: pointer;
 	width: 50%;
 }
 #menu-icon {
 /*  position: absolute;
   top: 10px;
   left: 10px; */
-  cursor: pointer;
+	cursor: pointer;
 	width: 50%;
 }
-
+.left-pane,
+.right-pane {
+	width: 45%;
+	margin-top: -10%;
+}
 main {
   text-align: center;
 }
@@ -90,6 +95,8 @@ main {
     color: #333;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    z-index: 110;
+    position: relative;
 }
 /*
 .decision-button:hover {
@@ -104,42 +111,49 @@ main {
 #leftScore,
 #rightScore {
     font-size: 45vw;
-    margin: 0 auto -20% auto;
-	padding: -30px 0;
-    font-family: "Rubik Mono One", monospace;
-    font-weight: 400;
+    margin: 0% auto -0% auto;
+	  padding: -10px 0;
+    font-family: "Sora", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
     font-style: normal;
+    z-index: 0;
+    position: relative;
 }
 
 #left-player-name,
 #right-player-name {
   font-size: 4vw;
   font-weight: bold;
-  margin: 0px 0;
-  width: 45%;
+  margin: -20% 0 0 0;
+  width: 100%;
   text-align: center;
 }
 
 #setting-modal {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  /*
   width: 100%;
   height: 120%;
+  */
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
+  z-index: 1000;
 }
 
 #setting-form {
   position: fixed;
   inset: 0;
-  margin: 100px auto auto auto;  
+  margin: 100px auto 30% auto;  
   background-color: #fff;
+  border: 1px #000 solid;
   padding: 20px;
   border-radius: 10px;
   max-width: 500px;
   text-align: center;
-  z-index: 20;
+  z-index: 1001;
 }
 #left-player-name-input {
 	margin-right: 20px;

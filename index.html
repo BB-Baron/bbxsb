@@ -46,7 +46,12 @@
 <body>
   <div id="app">
     <div id="nameBar">
-        <div id="left-player-name"></div>
+		<div id="left-decision-buttons">
+			  <button class="decision-button" data-value="1"><span class="cap-big">S</span>pin</button>
+			  <button class="decision-button" data-value="2"><span class="cap-big">B</span>urst</button>
+			  <button class="decision-button" data-value="2"><span class="cap-big">O</span>ver</button>
+			  <button class="decision-button" data-value="3"><span class="cap-big">X</span>tream</button>
+		</div>
         <div id="centre"><div>BBXSB</div>
         <div id="buttons">
 		  <div id="reset-button">
@@ -57,17 +62,17 @@
           </div>
         </div>
         </div>
-        <div id="right-player-name"></div>
-    </div>
-    <div class="container">
-        <div class="left-pane">
-          <div class="score" id="leftScore">0</div>
-			<div id="left-decision-buttons">
+		<div id="right-decision-buttons">
 			  <button class="decision-button" data-value="1"><span class="cap-big">S</span>pin</button>
 			  <button class="decision-button" data-value="2"><span class="cap-big">B</span>urst</button>
 			  <button class="decision-button" data-value="2"><span class="cap-big">O</span>ver</button>
 			  <button class="decision-button" data-value="3"><span class="cap-big">X</span>tream</button>
-			</div>
+		</div>
+    </div>
+    <div class="container">
+        <div class="left-pane">
+          <div class="score" id="leftScore">0</div>
+		  <div id="left-player-name"></div>
         </div>
         <div class="center-pane">
           <!--<div class="vs">VS</div>-->
@@ -75,19 +80,12 @@
         </div>
         <div class="right-pane">
           <div class="score" id="rightScore">0</div>
-			<div id="right-decision-buttons">
-			  <button class="decision-button" data-value="1"><span class="cap-big">S</span>pin</button>
-			  <button class="decision-button" data-value="2"><span class="cap-big">B</span>urst</button>
-			  <button class="decision-button" data-value="2"><span class="cap-big">O</span>ver</button>
-			  <button class="decision-button" data-value="3"><span class="cap-big">X</span>tream</button>
-			</div>
+          <div id="right-player-name"></div>
         </div>
     </div>
     <div id="footer">powered by BB Baron</div>
     <div id="adspace">
-	<!-- ad start -->
-        <%- partial('_custom_ad/google_adsense') %>
-	<!-- ad end -->
+        
     </div>
     <div id="setting-modal">
       <form id="setting-form">

@@ -123,3 +123,43 @@ settingFormElement.addEventListener('submit', (event) => {
   settingModalElement.style.display = 'none';
 });
 
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(event) {
+      switch (event.key) {
+          case '/':
+              resetButton.click();
+              break;
+          case '*':
+              //settingModal.style.display = 'block';
+              settingModalElement.style.display = 'block';
+              break;
+          // Left Side
+          case '7':
+              leftDecisionButtons[3].click();
+              break;
+          case '4':
+              leftDecisionButtons[2].click();
+              break;
+          case '1':
+              leftDecisionButtons[1].click();
+              break;
+          case '0':
+              leftDecisionButtons[0].click();
+              break;
+          // Right Side
+          case '9':
+              rightDecisionButtons[3].click();
+              break;
+          case '6':
+              rightDecisionButtons[2].click();
+              break;
+          case '3':
+              rightDecisionButtons[1].click();
+              break;
+          case '.':
+              rightDecisionButtons[0].click();
+              break;
+          default:
+              break;
+      }
+  });
