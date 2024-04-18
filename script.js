@@ -7,6 +7,7 @@ const leftDecisionButtons = document.querySelectorAll('#left-decision-buttons .d
 const rightDecisionButtons = document.querySelectorAll('#right-decision-buttons .decision-button');
 
 const resetButton = document.getElementById('reset-button');
+const rocketButton = document.getElementById('rocket-icon');
 
 const leftPlayerNameElement = document.getElementById('left-player-name');
 const rightPlayerNameElement = document.getElementById('right-player-name');
@@ -27,6 +28,9 @@ resetButton.addEventListener('click', () => {
   updateScore();
 });
 
+rocketButton.addEventListener('click', () => {
+  startCountdown();
+})
 // 初期表示
 leftPlayerNameElement.textContent = 'Left';
 rightPlayerNameElement.textContent = 'Right';

@@ -40,10 +40,47 @@
     });
   }
 </script>
+  <!-- カウントダウン -->
+  <script>
+    let countdownVideo;
+
+    window.onload = function() {
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'Enter') {
+                startCountdown();
+            }
+        });
+    };
+
+    function startCountdown() {
+        /*document.querySelector('button').style.display = 'none';*/
+
+        countdownVideo = document.getElementById('countdownVideo');
+        countdownVideo.style.display = 'block';
+        countdownVideo.play();
+    }
+    function endCountdown() {
+        /* 動画を非表示に */
+        countdownVideo.style.display = 'none';
+        /* ボタンの再表示 */
+        /*document.querySelector('button').style.display = 'block';*/
+    }
+</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3864593816657965"
      crossorigin="anonymous"></script>
+<style>
+    video {
+        display: none; /*まずは非表示*/
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
 </head>
 <body>
+  <!-- カウントダウン -->
+  <video id="countdownVideo" src="./movies/movie1.mp4" onended="endCountdown()"></video>
+  <!--スコアボード-->
   <div id="app">
     <div id="nameBar">
 		<div id="left-decision-buttons">
@@ -52,15 +89,19 @@
 			  <button class="decision-button" data-value="2"><span class="cap-big">O</span>ver</button>
 			  <button class="decision-button" data-value="3"><span class="cap-big">X</span>tream</button>
 		</div>
-        <div id="centre"><div>BBXSB</div>
-        <div id="buttons">
-		  <div id="reset-button">
-            <span class="material-symbols-outlined">refresh</span>
-          </div>
-          <div id="menu-icon">
-            <span class="material-symbols-outlined">settings</span>
-          </div>
-        </div>
+        <div id="centre" >
+            <div>BBXSB</div>
+            <div id="buttons">
+                <div id="reset-button">
+                    <span class="material-symbols-outlined">refresh</span>
+                </div>
+                <div id="menu-icon">
+                    <span class="material-symbols-outlined">settings</span>
+                </div>
+                <div id="rocket-icon">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                </div>
+            </div>
         </div>
 		<div id="right-decision-buttons">
 			  <button class="decision-button" data-value="1"><span class="cap-big">S</span>pin</button>
@@ -75,7 +116,7 @@
 		  <div id="left-player-name"></div>
         </div>
         <div class="center-pane">
-          <!--<div class="vs">VS</div>-->
+              <!--<div class="vs">VS</div>-->
           <ul id="decision-log"></ul>
         </div>
         <div class="right-pane">

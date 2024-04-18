@@ -65,16 +65,22 @@ display: flex;
 background-color: transparent;
 padding: 0;
 cursor: pointer;
-width: 50%;
+width: 33%;
 }
 #menu-icon {
   /*  position: absolute;
     top: 10px;
     left: 10px; */
     cursor: pointer;
-    width: 50%;
+    width: 33%;
 }
-  
+#rocket-icon {
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  width: 33%;
+}
+    
 .left-pane,
 .right-pane {
   width: 45%;
@@ -203,7 +209,7 @@ main {
 }
 
 .material-symbols-outlined {
-  font-size: 4vw;
+  font-size: 3.5vw;
 	font-variation-settings:
   'FILL' 0,
   'wght' 400,
