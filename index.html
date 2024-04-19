@@ -43,6 +43,7 @@
   <!-- カウントダウン -->
   <script>
     let countdownVideo;
+    let app;
 
     window.onload = function() {
         document.addEventListener('keydown', function(event) {
@@ -56,14 +57,16 @@
         /*document.querySelector('button').style.display = 'none';*/
 
         countdownVideo = document.getElementById('countdownVideo');
+        app = document.getElementById('app');
+        app.style.display = 'none';
         countdownVideo.style.display = 'block';
         countdownVideo.play();
     }
     function endCountdown() {
         /* 動画を非表示に */
         countdownVideo.style.display = 'none';
-        /* ボタンの再表示 */
-        /*document.querySelector('button').style.display = 'block';*/
+        /* ボタン類の再表示 */
+        app.style.display = 'block';
     }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3864593816657965"
