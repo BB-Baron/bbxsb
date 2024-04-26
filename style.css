@@ -44,28 +44,29 @@ div {
 
 #left-decision-buttons,
 #right-decision-buttons {
-    width: 45%;
+    width: 40%;
 }
 
 .center-pane {
-    width: 10%;
+    width: 20%;
 }
 
 #centre {
     font-size: 1.6VW;
-    width: 10%;
+    width: 20%;
     font-weight: 800;
 }
 #buttons {
 	width: 100%;
 	display: flex;
-  
+
 }
 #reset-button {
 	background-color: transparent;
 	padding: 0;
 	cursor: pointer;
 	width: 33%;
+  z-index: 111;
 }
 #menu-icon {
 /*  position: absolute;
@@ -73,17 +74,19 @@ div {
   left: 10px; */
 	cursor: pointer;
 	width: 33%;
+  z-index: 111;
 }
 #rocket-icon {
 	background-color: transparent;
 	padding: 0;
 	cursor: pointer;
 	width: 33%;
+  z-index: 111;
 }
 
 .left-pane,
 .right-pane {
-	width: 45%;
+	width: 40%;
 	margin-top: -10%;
 }
 main {
@@ -119,8 +122,8 @@ main {
     font-size: 3vw;
     font-weight: 800;
 }
-#leftScore,
-#rightScore {
+#leftScore::first-letter,
+#rightScore::first-letter {
     font-size: 45vw;
     margin: 0% auto -0% auto;
 	  padding: -10px 0;
@@ -131,12 +134,16 @@ main {
     z-index: 0;
     position: relative;
 }
+#leftScore,
+#rightScore {
+    font-size: 9vw;
+}
 
 #left-player-name,
 #right-player-name {
   font-size: 4vw;
   font-weight: bold;
-  margin: -20% 0 0 0;
+  margin: -40% 0 0 0;
   width: 100%;
   text-align: center;
 }
@@ -246,7 +253,7 @@ main {
 #decision-log li {
   padding: 5px 5px;
   border-bottom: 1px solid #ccc;
-  font-size: 1vw;
+  font-size: 1.6vw;
 }
 
 #decision-log li::after {
