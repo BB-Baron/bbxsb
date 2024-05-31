@@ -1,169 +1,142 @@
-const leftScoreElement = document.getElementById('leftScore');
-const rightScoreElement = document.getElementById('rightScore');
-const victoryPointInput = document.getElementById('victory-point-input');
-const decisionLogElement = document.getElementById('decision-log');
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('setting-modal');
+  const menuIcon = document.getElementById('menu-icon');
+  const rocketIcon = document.getElementById('rocket-icon');
+  const settingForm = document.getElementById('setting-form');
+  const leftPlayerNameInput = document.getElementById('left-player-name-input');
+  const rightPlayerNameInput = document.getElementById('right-player-name-input');
+  const leftPlayerNameDisplay = document.getElementById('left-player-name');
+  const rightPlayerNameDisplay = document.getElementById('right-player-name');
+  const countdownVideoSelect = document.getElementById('countdown-video-select');
+  const countdownVideo = document.getElementById('countdownVideo');
 
-const leftDecisionButtons = document.querySelectorAll('#left-decision-buttons .decision-button');
-const rightDecisionButtons = document.querySelectorAll('#right-decision-buttons .decision-button');
+  leftPlayerNameDisplay.textContent = leftPlayerNameInput.value;
+  rightPlayerNameDisplay.textContent = rightPlayerNameInput.value;
 
-const resetButton = document.getElementById('reset-button');
-const rocketButton = document.getElementById('rocket-icon');
-
-const leftPlayerNameElement = document.getElementById('left-player-name');
-const rightPlayerNameElement = document.getElementById('right-player-name');
-const settingModalElement = document.getElementById('setting-modal');
-const settingFormElement = document.getElementById('setting-form');
-
-const resetButtonElement = document.getElementById('reset-button');
-resetButtonElement.addEventListener('click', () => {
-  leftPlayerNameElement.textContent = 'Left';
-  rightPlayerNameElement.textContent = 'Right';
-});
-resetButton.addEventListener('click', () => {
-  leftScore = 0;
-  rightScore = 0;
-  decisionLogElement.innerHTML = '';
-  leftPlayerNameElement.style.color = '';
-  rightPlayerNameElement.style.color = '';
-  updateScore();
-});
-
-rocketButton.addEventListener('click', () => {
-  startCountdown();
-})
-// 初期表示
-leftPlayerNameElement.textContent = 'Left';
-rightPlayerNameElement.textContent = 'Right';
-
-let leftScore = 0;
-let rightScore = 0;
-let victoryPoint = 4;
-
-const decisionPoints = {
-  'Spin': 1,
-  'Burst': 2,
-  'Over': 2,
-  'Xtream': 3,
-};
-
-updateScore();
-
-victoryPointInput.addEventListener('change', () => {
-  victoryPoint = parseInt(victoryPointInput.value);
-  updateScore();
-});
-
-
-leftDecisionButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    addDecisionLog('<--', button.textContent, decisionPoints[button.textContent]);
-    leftScore += decisionPoints[button.textContent];
-    updateScore();
+  menuIcon.addEventListener('click', function () {
+    modal.style.display = 'block';
   });
-});
 
-rightDecisionButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    addDecisionLog('-->', button.textContent, decisionPoints[button.textContent]);
-    rightScore += decisionPoints[button.textContent];
-    updateScore();
+  settingForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    leftPlayerNameDisplay.textContent = leftPlayerNameInput.value;
+    rightPlayerNameDisplay.textContent = rightPlayerNameInput.value;
+    countdownVideo.src = countdownVideoSelect.value;
+
+    modal.style.display = 'none';
   });
-});
 
-//log
-function addDecisionLog(side, decision, point) {
-  const liElement = document.createElement('li');
-  if (side == '<--') {
-	  liElement.textContent = `${point} ${side} ${decision}`;
-  }else{
-	  liElement.textContent = `${decision}${side} ${point}`;
-  }
-  decisionLogElement.appendChild(liElement);
-  decisionLogElement.scrollTop = decisionLogElement.scrollHeight;
-}
+  document.getElementById('reset-button').addEventListener('click', function () {
+    resetScoreboard();
+  });
 
+  rocketIcon.addEventListener('click', function () {
+    startCountdown();
+  });
 
-
-function updateScore() {
-  leftScoreElement.textContent = leftScore;
-  rightScoreElement.textContent = rightScore;
-
-  if (leftScore >= victoryPoint) {
-    leftPlayerNameElement.style.backgroundColor = 'yellow';
-    leftPlayerNameElement.style.color = 'black';
-  } else {
-    leftPlayerNameElement.style.backgroundColor = '';
-  }
-
-  if (rightScore >= victoryPoint) {
-    rightPlayerNameElement.style.backgroundColor = 'yellow';
-    rightPlayerNameElement.style.color = 'black';
-  } else {
-    rightPlayerNameElement.style.backgroundColor = '';
-  }
-}
-
-//css切り替え
-function changestyle(cssid,cssfile) {
-   document.getElementById(cssid).href = cssfile;
-}
-
-
-//＝＝＝旧コード
-const menuIconElement = document.getElementById('menu-icon');
-menuIconElement.addEventListener('click', () => {
-  settingModalElement.style.display = 'block';
-});
-
-settingFormElement.addEventListener('submit', (event) => {
-  event.preventDefault();
-
-  const leftPlayerName = event.target.elements['leftPlayerName'].value;
-  const rightPlayerName = event.target.elements['rightPlayerName'].value;
-
-  leftPlayerNameElement.textContent = leftPlayerName;
-  rightPlayerNameElement.textContent = rightPlayerName;
-
-  settingModalElement.style.display = 'none';
-});
-
-    // Keyboard shortcuts
-    document.addEventListener('keydown', function(event) {
-      switch (event.key) {
-          case '/':
-              resetButton.click();
-              break;
-          case '*':
-              //settingModal.style.display = 'block';
-              settingModalElement.style.display = 'block';
-              break;
-          // Left Side
-          case '7':
-              leftDecisionButtons[3].click();
-              break;
-          case '4':
-              leftDecisionButtons[2].click();
-              break;
-          case '1':
-              leftDecisionButtons[1].click();
-              break;
-          case '0':
-              leftDecisionButtons[0].click();
-              break;
-          // Right Side
-          case '9':
-              rightDecisionButtons[3].click();
-              break;
-          case '6':
-              rightDecisionButtons[2].click();
-              break;
-          case '3':
-              rightDecisionButtons[1].click();
-              break;
-          case '.':
-              rightDecisionButtons[0].click();
-              break;
-          default:
-              break;
+  const decisionButtons = document.querySelectorAll('.decision-button');
+  decisionButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const value = parseInt(this.getAttribute('data-value'));
+      const label = this.getAttribute('data-label');
+      if (this.parentElement.id === 'left-decision-buttons') {
+        updateScore('left', value, label);
+      } else {
+        updateScore('right', value, label);
       }
+    });
   });
+//LR イベントリスナー
+  const limitedRulesButtons = document.querySelectorAll('.lr-button');
+  limitedRulesButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const value = parseInt(this.getAttribute('data-value'));
+      const side = this.getAttribute('data-side');
+      updateScore(side, value, 'LR');
+    });
+  });
+
+  function resetScoreboard() {
+    document.getElementById('leftScore').textContent = '0';
+    document.getElementById('rightScore').textContent = '0';
+    document.getElementById('decision-log').innerHTML = '';
+    document.getElementById('left-player-name').style.backgroundColor = '';
+    document.getElementById('right-player-name').style.backgroundColor = '';
+    document.getElementById('left-player-name').style.color = '';
+    document.getElementById('right-player-name').style.color = '';
+  }
+
+  function updateScore(side, value, label) {
+    const scoreElement = document.getElementById(side + 'Score');
+    let score = parseInt(scoreElement.textContent);
+
+
+    score += value;
+    scoreElement.textContent = score;
+    //勝者の背景色を黄色に
+    const victoryPoint = parseInt(document.getElementById('victory-point-input').value);
+    const playerNameDiv = document.getElementById(side + '-player-name');
+    if (score >= victoryPoint){
+      playerNameDiv.style.backgroundColor = 'yellow';
+      playerNameDiv.style.color = 'black';
+    } else{
+      playerNameDiv.style.backgroundColor = '';
+      playerNameDiv.style.color = '';
+    }
+
+    logDecision(side, value, label);
+  }
+
+  function logDecision(side, value, label) {
+    const logElement = document.getElementById('decision-log');
+    const logEntry = document.createElement('li');
+    logEntry.innerHTML = side === 'left' ? `${value}<--${label}` : `${label}-->${value}`;
+    logElement.appendChild(logEntry);
+  }
+
+  // CSS切り替え
+  window.changestyle = function (sheetId, sheetValue) {
+    document.getElementById(sheetId).setAttribute('href', sheetValue);
+  };
+});
+
+// ショートカット
+document.addEventListener('keydown', function(event) {
+  switch (event.key) {
+      case '/':
+          resetButton.click();
+          break;
+      case '*':
+          //settingModal.style.display = 'block';
+          settingModalElement.style.display = 'block';
+          break;
+      // Left Side
+      case '7':
+          leftDecisionButtons[3].click();
+          break;
+      case '4':
+          leftDecisionButtons[2].click();
+          break;
+      case '1':
+          leftDecisionButtons[1].click();
+          break;
+      case '0':
+          leftDecisionButtons[0].click();
+          break;
+      // Right Side
+      case '9':
+          rightDecisionButtons[3].click();
+          break;
+      case '6':
+          rightDecisionButtons[2].click();
+          break;
+      case '3':
+          rightDecisionButtons[1].click();
+          break;
+      case '.':
+          rightDecisionButtons[0].click();
+          break;
+      default:
+          break;
+  }
+});

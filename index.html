@@ -24,14 +24,7 @@
   <script async src="https://cdn.jsdelivr.net/npm/pwacompat" crossorigin="anonymous"></script>
   <title>BeyBladeX Scoreboard</title>
   <link rel="stylesheet" type="text/css" href="style.css" id="mystyle">
- <!--
-  <script type="text/javascript">
-	function changestyle(cssid,cssfile) {
-	   document.getElementById(cssid).href = cssfile;
-	}
-</script>
--->
-<script>
+ <script>
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./serviceWorker.js').then(registration => {
       console.log('ServiceWorker registration successful.');
@@ -54,22 +47,19 @@
     };
 
     function startCountdown() {
-        /*document.querySelector('button').style.display = 'none';*/
-
         countdownVideo = document.getElementById('countdownVideo');
         app = document.getElementById('app');
         app.style.display = 'none';
         countdownVideo.style.display = 'block';
         countdownVideo.play();
     }
+
     function endCountdown() {
-        /* 動画を非表示に */
         countdownVideo.style.display = 'none';
-        /* ボタン類の再表示 */
         app.style.display = 'block';
     }
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3864593816657965"
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3864593816657965"
      crossorigin="anonymous"></script>
 <style>
     video {
@@ -87,11 +77,12 @@
   <div id="app">
     <div id="nameBar">
 		<div id="left-decision-buttons">
-			  <button class="decision-button" data-value="1"><span class="cap-big">S</span>pin</button>
-			  <button class="decision-button" data-value="2"><span class="cap-big">B</span>urst</button>
-			  <button class="decision-button" data-value="2"><span class="cap-big">O</span>ver</button>
-			  <button class="decision-button" data-value="3"><span class="cap-big">X</span>tream</button>
-		</div>
+			  <button class="decision-button" data-value="1" data-label="Spin"><span class="cap-big">S</span>pin</button>
+			  <button class="decision-button" data-value="2" data-label="Burst"><span class="cap-big">B</span>urst</button>
+			  <button class="decision-button" data-value="2" data-label="Over"><span class="cap-big">O</span>ver</button>
+			  <button class="decision-button" data-value="3" data-label="Xtream"><span class="cap-big">X</span>tream</button>
+        <button class="decision-button of-button" data-value="1" data-label="OF"><span class="cap-big">O</span>F</button>
+    </div>
         <div id="centre" >
             <div>BBXSB</div>
             <div id="buttons">
@@ -107,10 +98,11 @@
             </div>
         </div>
 		<div id="right-decision-buttons">
-			  <button class="decision-button" data-value="1"><span class="cap-big">S</span>pin</button>
-			  <button class="decision-button" data-value="2"><span class="cap-big">B</span>urst</button>
-			  <button class="decision-button" data-value="2"><span class="cap-big">O</span>ver</button>
-			  <button class="decision-button" data-value="3"><span class="cap-big">X</span>tream</button>
+			  <button class="decision-button" data-value="1" data-label="Spin"><span class="cap-big">S</span>pin</button>
+			  <button class="decision-button" data-value="2" data-label="Burst"><span class="cap-big">B</span>urst</button>
+			  <button class="decision-button" data-value="2" data-label="Over"><span class="cap-big">O</span>ver</button>
+			  <button class="decision-button" data-value="3" data-label="Xtream"><span class="cap-big">X</span>tream</button>
+        <button class="decision-button of-button" data-value="1" data-label="OF"><span class="cap-big">O</span>F</button>
 		</div>
     </div>
     <div class="container">
@@ -119,7 +111,6 @@
 		  <div id="left-player-name"></div>
         </div>
         <div class="center-pane">
-              <!--<div class="vs">VS</div>-->
           <ul id="decision-log"></ul>
         </div>
         <div class="right-pane">
@@ -133,24 +124,42 @@
     </div>
     <div id="setting-modal">
       <form id="setting-form">
-        <h2>プレイヤー名設定</h2>
-        <button type="submit" style="margin-bottom: 10px;">Set and Close</button><br>
-        <label for="left-player-name-input">Left：</label>
+        <button id="sac" type="submit" style="margin-bottom: 10px;">Set and Close</button><br>
+        <h3>Player Name</h3>
+        <label for="left-player-name-input">Left:</label>
         <input type="text" id="left-player-name-input" name="leftPlayerName" required value="Left">
-        <label for="right-player-name-input">Right：</label>
+        / <label for="right-player-name-input">Right:</label>
         <input type="text" id="right-player-name-input" name="rightPlayerName" required value="Right"><br>
+        <h3>Limited Rule</h3>
+        <div>
+          <label for="lr-button">Left Point:</label>
+          <button class="lr-button" id="left-lr-1" data-side="left" data-value="1">1</button>
+          <button class="lr-button" id="left-lr-2" data-side="left" data-value="2">2</button>
+          <button class="lr-button" id="left-lr-3" data-side="left" data-value="3">3</button>
+          / <label for="lr-button">Right Point:</label>
+          <button class="lr-button" id="right-lr-1" data-side="right" data-value="1">1</button>
+          <button class="lr-button" id="right-lr-2" data-side="right" data-value="2">2</button>
+          <button class="lr-button" id="right-lr-3" data-side="right" data-value="3">3</button>
+        </div>
         <div id="sets">
-			<div id="victory-point-setting">Victory Points:
+          <h3>Others</h3>
+          <label for="countdown-video-select">Countdown Speed:</label>
+          <select id="countdown-video-select">
+              <option value="./movies/movie1.mp4">1 Sec</option>
+              <option value="./movies/movie2.mp4">0.7 Sec</option>
+          </select>
+        <div id="victory-point-setting">Victory Points:
 			 <input type="number" id="victory-point-input" value="4" size="3">
             </div>
 			<div id="styleselect">
-                <select onchange="changestyle('mystyle',value);">
-				    <option value="style.css">Default Style</option>
-				    <option value="style_b.css">Black Style</option>
-				    <option value="style_g.css">Green Style</option>
-				    <option value="style_bl.css">Blue Style</option>
-                </select>
-            </div>
+            <label for="theme">Theme:</label>
+            <select id="theme" onchange="changestyle('mystyle',value);">
+				      <option value="style.css">Default Style</option>
+				      <option value="style_b.css">Black Style</option>
+				      <option value="style_g.css">Green Style</option>
+				      <option value="style_bl.css">Blue Style</option>
+            </select>
+        </div>
 		</div>
         <div class="btnlink"><a href="start.html">Start Page</a></div>
       </form>
