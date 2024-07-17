@@ -119,7 +119,7 @@ z-index: 111;
 
 #leftScore::first-letter,
 #rightScore::first-letter {
-    font-size: 45vmin;
+    font-size: 50vmin;
     padding: 0% 0;
     margin: 0% auto -0% auto;
     font-family: "Sora", sans-serif;
