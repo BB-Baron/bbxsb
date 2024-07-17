@@ -117,7 +117,7 @@ z-index: 111;
 
 #leftScore::first-letter,
 #rightScore::first-letter {
-    font-size: 45vw;
+    font-size: 45vmin;
     padding: 0% 0;
     margin: 0% auto -0% auto;
     font-family: "Sora", sans-serif;
@@ -166,7 +166,7 @@ z-index: 111;
 
 #left-player-name, #right-player-name {
   font-size: 3vw;
-  margin: -10% 0 0;
+  margin: -5vmin 0 0;
 }
 div#left-player-name, div#right-player-name{
   width:100%;
