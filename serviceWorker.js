@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 // service-worker.js
 self.addEventListener('install', function(e) {
   console.log('[ServiceWorker] Install');
@@ -15,7 +15,7 @@ self.addEventListener('install', (event) => {
       return cache.addAll([
         '/',
         'index.html',
-        'score.html'
+        'score.html',
         'style.css',
         'style_b.css',
         'style_g.css',
@@ -35,4 +35,4 @@ self.addEventListener('fetch', (event) => {
     })
   );
 });
->>>>>>> Stashed changes
+
