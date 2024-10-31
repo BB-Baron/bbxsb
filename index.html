@@ -77,11 +77,11 @@
   <div id="app">
     <div id="nameBar">
 		<div id="left-decision-buttons">
-			  <button class="decision-button" data-value="1" data-label="Spin">スピン</button>
-			  <button class="decision-button" data-value="2" data-label="Burst">バースト</button>
-			  <button class="decision-button" data-value="2" data-label="Over">オーバー</button>
-			  <button class="decision-button" data-value="3" data-label="Xtream">エクストリーム</button>
-        <button class="decision-button of-button" data-value="1" data-label="OF">オウン</button>
+			  <button class="decision-button" data-value="1" data-label="Spin"><span class="cap-big">S</span>pin</button>
+			  <button class="decision-button" data-value="2" data-label="Burst"><span class="cap-big">B</span>urst</button>
+			  <button class="decision-button" data-value="2" data-label="Over"><span class="cap-big">O</span>ver</button>
+			  <button class="decision-button" data-value="3" data-label="Xtream"><span class="cap-big">X</span>tream</button>
+        <button class="decision-button of-button" data-value="1" data-label="OF"><span class="cap-big">O</span>F</button>
     </div>
         <div id="centre" >
             <div>BBXSB</div>
@@ -98,11 +98,11 @@
             </div>
         </div>
 		<div id="right-decision-buttons">
-			  <button class="decision-button" data-value="1" data-label="Spin">スピン</button>
-			  <button class="decision-button" data-value="2" data-label="Burst">バースト</button>
-			  <button class="decision-button" data-value="2" data-label="Over">オーバー</button>
-			  <button class="decision-button" data-value="3" data-label="Xtream">エクストリーム</button>
-        <button class="decision-button of-button" data-value="1" data-label="OF">オウン</button>
+			  <button class="decision-button" data-value="1" data-label="Spin"><span class="cap-big">S</span>pin</button>
+			  <button class="decision-button" data-value="2" data-label="Burst"><span class="cap-big">B</span>urst</button>
+			  <button class="decision-button" data-value="2" data-label="Over"><span class="cap-big">O</span>ver</button>
+			  <button class="decision-button" data-value="3" data-label="Xtream"><span class="cap-big">X</span>tream</button>
+        <button class="decision-button of-button" data-value="1" data-label="OF"><span class="cap-big">O</span>F</button>
 		</div>
     </div>
     <div class="container">
@@ -118,50 +118,50 @@
           <div id="right-player-name"></div>
         </div>
     </div>
-    <div id="footer">パワードバイ BB Baron</div>
+    <div id="footer">powered by BB Baron</div>
     <div id="adspace">
         
     </div>
     <div id="setting-modal">
       <form id="setting-form">
-        <button id="sac" type="submit" style="margin-bottom: 10px;">とじる</button><br>
-        <h3>プレイヤーネーム</h3>
-        <label for="left-player-name-input">ひだり:</label>
-        <input type="text" id="left-player-name-input" name="leftPlayerName" required value="ひだり">
-        / <label for="right-player-name-input">みぎ:</label>
-        <input type="text" id="right-player-name-input" name="rightPlayerName" required value="みぎ"><br>
-        <h3>リミテッドルール</h3>
+        <button id="sac" type="submit" style="margin-bottom: 10px;">Set and Close</button><br>
+        <h3>Player Name</h3>
+        <label for="left-player-name-input">Left:</label>
+        <input type="text" id="left-player-name-input" name="leftPlayerName" required value="Left">
+        / <label for="right-player-name-input">Right:</label>
+        <input type="text" id="right-player-name-input" name="rightPlayerName" required value="Right"><br>
+        <h3>Limited Rule</h3>
         <div>
-          <label for="lr-button">ひだりのポイント:</label>
+          <label for="lr-button">Left Point:</label>
           <button class="lr-button" id="left-lr-1" data-side="left" data-value="1">1</button>
           <button class="lr-button" id="left-lr-2" data-side="left" data-value="2">2</button>
           <button class="lr-button" id="left-lr-3" data-side="left" data-value="3">3</button>
-          <br><label for="lr-button">みぎのポイント:</label>
+          / <label for="lr-button">Right Point:</label>
           <button class="lr-button" id="right-lr-1" data-side="right" data-value="1">1</button>
           <button class="lr-button" id="right-lr-2" data-side="right" data-value="2">2</button>
           <button class="lr-button" id="right-lr-3" data-side="right" data-value="3">3</button>
         </div>
         <div id="sets">
-          <h3>そのた</h3>
-          <label for="countdown-video-select">カウントダウンのそくど:</label>
+          <h3>Others</h3>
+          <label for="countdown-video-select">Countdown Speed:</label>
           <select id="countdown-video-select">
-              <option value="./movies/movie1.mp4">1 びょう</option>
-              <option value="./movies/movie2.mp4">0.7 びょう</option>
+              <option value="./movies/movie1.mp4">1 Sec</option>
+              <option value="./movies/movie2.mp4">0.7 Sec</option>
           </select>
-        <div id="victory-point-setting">しょうりてんすう:
+        <div id="victory-point-setting">Victory Points:
 			 <input type="number" id="victory-point-input" value="4" size="3">
             </div>
 			<div id="styleselect">
-            <label for="theme">てーまのいろ:</label>
+            <label for="theme">Theme:</label>
             <select id="theme" onchange="changestyle('mystyle',value);">
-				      <option value="style.css">ふつう</option>
-				      <option value="style_b.css">くろ</option>
-				      <option value="style_g.css">みどり</option>
-				      <option value="style_bl.css">あお</option>
+				      <option value="style.css">Default Style</option>
+				      <option value="style_b.css">Black Style</option>
+				      <option value="style_g.css">Green Style</option>
+				      <option value="style_bl.css">Blue Style</option>
             </select>
         </div>
 		</div>
-        <div class="btnlink"><a href="start.html">スタートページへ</a></div>
+        <div class="btnlink"><a href="start.html">Start Page</a></div>
       </form>
     </div>
   </div>

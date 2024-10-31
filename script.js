@@ -140,18 +140,3 @@ document.addEventListener('keydown', function(event) {
           break;
   }
 });
-// フォントサイズ調整
-// function adjustFontSize() {
-//   const leftScoreElement = document.getElementById('leftscore');
-//   const rightScoreElement = document.getElementById('rightscore');
-//   const appElement = document.getElementById('app');
-//   const width = appElement.clientWidth;
-//   const height = appElement.clientHeight;
-// 
-//   const fontSize = Math.min(width, height * 2) * 0.4;
-// 
-//   leftScoreElement.style.fontSize = '${fontSize}px';
-//   rightScoreElement.style.fontSize = '${fontSize}px';
-// }
-// window.addEventListener('load', adjustFontSize);
-// window.addEventListener('resize', adjustFontSize);
